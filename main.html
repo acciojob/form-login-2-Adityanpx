@@ -8,28 +8,30 @@
 <body>
 
     <h1>Form Login 2</h1>
+
+    <label>First Name: <input type="text" id="first-name"></label><br><br>
+    <label>Last Name: <input type="text" id="last-name"></label><br><br>
+    <label>Phone Number: <input type="tel" id="phone"></label><br><br>
+    <label>Email ID: <input type="email" id="email"></label><br><br>
     
-    <label>First Name: <input type="text" id="first-name"></label> <br><br>
-    <label>Last Name: <input type="text" id="last-name"></label> <br><br>
-    <label>Phone Number: <input type="tel" id="phone"></label> <br><br>
-    <label>Email ID: <input type="email" id="email"></label> <br><br>
-    
-    <button id="submit">Submit</button>
+    <button onclick="submitForm()">Submit</button>
 
     <script>
-        document.getElementById("submit").addEventListener("click", function() {
+        function submitForm() {
             let firstName = document.getElementById("first-name").value.trim();
             let lastName = document.getElementById("last-name").value.trim();
             let phone = document.getElementById("phone").value.trim();
             let email = document.getElementById("email").value.trim();
 
-            if (firstName === "" || lastName === "" || phone === "" || email === "") {
+            // Ensure all fields are filled
+            if (!firstName || !lastName || !phone || !email) {
                 alert("Please fill in all fields before submitting.");
                 return;
             }
 
-            alert(`First Name: ${firstName} Last Name: ${lastName} Phone Number: ${phone} Email ID: ${email}`);
-        });
+            // Correct formatting as per requirements
+            alert("First Name: " + firstName + " Last Name: " + lastName + " Phone Number: " + phone + " Email ID: " + email);
+        }
     </script>
 
 </body>
